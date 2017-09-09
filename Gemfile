@@ -17,6 +17,10 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+# Social media logins
+gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-google-oauth2', '~> 0.5.2'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
