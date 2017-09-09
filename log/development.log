@@ -356,3 +356,35 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 52ms (Views: 47.6ms | ActiveRecord: 1.9ms)
 
 
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-09 21:25:12 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (26.4ms)
+  Rendered shared/_navbar.html.erb (4.5ms)
+  Rendered shared/_flashes.html.erb (0.6ms)
+Completed 200 OK in 87ms (Views: 82.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2017-09-09 21:25:14 +0200
+Started GET "/users/auth/google_oauth2/callback?state=6e5de419b70b5bb4b2255a76728c0dea637b41106852440f&code=4%2F-CiU31vQ9h8kNWvzloLaJjMniyacj_unVsLopIbbsFQ" for 127.0.0.1 at 2017-09-09 21:25:29 +0200
+Processing by Users::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"6e5de419b70b5bb4b2255a76728c0dea637b41106852440f", "code"=>"4/-CiU31vQ9h8kNWvzloLaJjMniyacj_unVsLopIbbsFQ"}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "seresamo@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (10.8ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", "2017-09-09 19:25:30.449830"], ["sign_in_count", 2], ["updated_at", "2017-09-09 19:25:30.463291"], ["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 71ms (ActiveRecord: 14.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-09 21:25:30 +0200
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_navbar.html.erb (13.8ms)
+  Rendered shared/_flashes.html.erb (1.2ms)
+Completed 200 OK in 103ms (Views: 88.2ms | ActiveRecord: 0.9ms)
+
+
