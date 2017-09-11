@@ -11,5 +11,12 @@ Rails.application.routes.draw do
       get 'composts', to: 'users#composts'
     end
   end
+
+  # admin routes
+  namespace :admin do
+    root to: 'pages#dashboard'
+    resources :users, only: [:edit, :update]
+    resources :composts
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
