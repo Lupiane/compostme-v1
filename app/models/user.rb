@@ -7,7 +7,6 @@ class User < ApplicationRecord
 
   has_many :composts, dependent: :destroy
   has_many :reviews
-  validates :username, presence: true
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
