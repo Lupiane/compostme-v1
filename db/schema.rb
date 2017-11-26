@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171126190228) do
+ActiveRecord::Schema.define(version: 20171126203931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "composts", force: :cascade do |t|
-    t.string "type"
+    t.string "owner"
     t.string "address"
     t.text "specifics"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "active"
-    t.string "verified"
+    t.boolean "verified", default: false
     t.index ["user_id"], name: "index_composts_on_user_id"
   end
 
