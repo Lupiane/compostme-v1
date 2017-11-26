@@ -7,14 +7,14 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   </head>
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div class="container">
+    <%= yield %>
+    <%= javascript_include_tag 'application' %>
 
-      <%= yield %>
-      <%= javascript_include_tag 'application' %>
-      </div>
   </body>
 </html>
