@@ -1,0 +1,8 @@
+<%  if @composts %>
+  <ul>
+  <% @composts.each do |compost| %>
+    <%= link_to compost.address, compost_path(compost) %>
+    <li>compost.status</li>
+  <% end %>
+  </ul>
+<% end %>
