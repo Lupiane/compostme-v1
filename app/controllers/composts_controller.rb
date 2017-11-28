@@ -4,6 +4,13 @@ class CompostsController < ApplicationController
 
   def index
     @composts = Compost.all
+
+    if params[:compost] == nil
+      @composts
+    else
+      @composts = @composts.where("address LIKE ?", "%#{params[:compost][:address].capitalize}%")
+    end
+
   end
 
   def show
@@ -17,6 +24,7 @@ class CompostsController < ApplicationController
   def create
     @compost = Compost.new(compost_params)
     @compost.user = current_user
+    @compost.owner = "private"
     if @compost.save
       redirect_to compost_path(@compost)
     else
@@ -31,5 +39,11 @@ class CompostsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def compost_params
+    params.require(:compost).permit(:address, :specifics)
   end
 end

@@ -1,8 +1,15 @@
 <%  if @composts %>
-  <ul>
+  <ul style="list-style-type: none">
   <% @composts.each do |compost| %>
-    <%= link_to compost.address, compost_path(compost) %>
-    <li>compost.status</li>
+    <li> <% if compost.owner == "private" %>
+        <%= image_tag 'user.png', class: "img-icon" %>
+      <% else %>
+        <%= image_tag 'compost.png', class: "img-icon" %>
+        <% end %>
+      <%= link_to compost.address, compost_path(compost) %>
+    </li>
   <% end %>
   </ul>
 <% end %>
+
+<%= link_to "Add a new compost :)", new_compost_path %>
