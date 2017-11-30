@@ -3,7 +3,7 @@ class CompostsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @composts = Compost.all
+    @composts = policy_scope(Compost)
 
     if params[:compost] == nil
       @composts
@@ -19,10 +19,12 @@ class CompostsController < ApplicationController
 
   def new
     @compost = Compost.new
+    authorize @compost
   end
 
   def create
     @compost = Compost.new(compost_params)
+    authorize @compost
     @compost.user = current_user
     @compost.owner = "private"
     if @compost.save
