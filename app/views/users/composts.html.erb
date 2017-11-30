@@ -1,4 +1,8 @@
-<h1>My composts</h1>
+<%= content_for(:title) do %>
+ Tous mes composts
+<% end %>
+
+<h1>Mes composts</h1>
 
 <ul>
 <% @composts.each do |compost| %>

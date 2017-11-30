@@ -15,6 +15,13 @@ class CompostsController < ApplicationController
 
   def show
     @compost = Compost.find(params[:id])
+    authorize @compost
+
+    @markers = {
+        lat: @compost.latitude,
+        lng: @compost.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/composts/map_box", locals: { compost: compost }) }
+      }
   end
 
   def new

@@ -1,4 +1,14 @@
+<%= content_for(:title) do %>
+  Compost n°<%= @compost.id %>
+<% end %>
 <%= @compost.owner.capitalize %> Compost - <%= @compost.address %>
 <br>
+
+<div id="map" data-markers="<%= @markers.to_json %>"></div>
 <%= link_to "Retour", composts_path %>
 
+
+
+<script>
+  alert('Welcome to <%= j @compost.address %>')
+</script>
