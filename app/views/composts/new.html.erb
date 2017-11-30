@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
       <%= simple_form_for @compost do |f| %>
-        <%= f.input :address, label: "Enter the location of collection of the waste" %>
-        <%= f.input :specifics, label: "Enter a short description of your compost, the type of waste you want and any other requirement you may have" %>
-        <%= f.submit "add your compost!", class: "btn btn-primary" %>
+        <%= f.input :address, label: "Adresse de récupération des déchets" %>
+        <%= f.input :specifics, label: "Décrivez rapdement le type de déchets que vous souhaitez récupérer pour votre compost, et toute autre précision qui vous semble pertinente", input_html: {rows: 10 } %>
+        <%= f.submit "J'ajoute mon compost!", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
